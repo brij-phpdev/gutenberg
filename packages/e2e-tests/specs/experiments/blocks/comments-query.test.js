@@ -83,7 +83,10 @@ describe( 'Comment Query Loop', () => {
 	afterAll( async () => {
 		await trashAllComments();
 		await activateTheme( 'twentytwentyone' );
-		await setOption( 'page_comments', previousPageComments );
+		await setOption(
+			'page_comments',
+			previousPageComments === '' ? '0' : previousPageComments
+		);
 		await setOption( 'comments_per_page', previousCommentsPerPage );
 		await setOption( 'default_comments_page', previousDefaultCommentsPage );
 	} );
